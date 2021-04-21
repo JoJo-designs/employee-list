@@ -23,20 +23,29 @@ function openMenu() {
     ])
     .then((answer) => {
       if(answer.menu === "Employee"){
-        //addEmployee();
-        console.log("Add Employee")
+        addEmployee();
       } else if(answer.menu === "Engineer"){
-        //addEngineer();
-        console.log("Add Engineer")
+        addEngineer();
       } else if(answer.menu === "Intern"){
-        //addIntern();
-        console.log("Add Intern")
+        addIntern();
       } else {
-        //addManager();
-        console.log("Add Manager")
+        addManager();
       }
     });
 } 
+
+function addEmployee(){
+  console.log("Added empolyee")
+}
+function addEngineer(){
+  console.log("Added engineer")
+}
+function addIntern(){
+  console.log("Added intern")
+}
+function addManager(){
+  console.log("Added manager")
+}
 
 openMenu();
 
