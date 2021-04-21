@@ -4,8 +4,11 @@ const employ = require("../index");
 describe("index", () => {
     describe("Menu", () => {
         it("creates a new manager odject", () => {
-          const result = new Manager("Manager", "name", "employId", "email", "officeNum")
-          expect(result instanceof Manager()).toEqual(true);
+          const role = "manager"
+          const obj = new Manager(role);
+
+          const results = obj.value()
+          expect(results instanceof Manager()).toEqual(true);
         });
       });
   });

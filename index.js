@@ -34,15 +34,26 @@ function openMenu() {
     });
 } 
 
+// functions will be spaific for each job title each one will have prompted questions
+// when the after all the questions are answerd and new odjects are made the open menu 
+// function will run again.
+
+// function that add an employee
 function addEmployee(){
-  console.log("Added empolyee")
+  console.log("Added employee")
 }
+
+//function that add an engineer
 function addEngineer(){
   console.log("Added engineer")
 }
+
+//funtion that add an intern
 function addIntern(){
   console.log("Added intern")
 }
+
+//funtion that add a manager
 function addManager(){
   console.log("Added manager")
 }
