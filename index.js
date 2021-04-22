@@ -126,17 +126,17 @@ function makeOdject(answer, valueEn, valueIn, valueMa) {
     answer.name = new Employee(answer.menu, answer.name, answer.employeeId, answer.email)
     console.log(employeeName)
   } else if (answer.menu === "Engineer") {
-    employeeName = new Engineer(answer.menu, answer.name, answer.employeeId, answer.email, valueEn.gitHub)
+    answer.name = new Engineer(answer.menu, answer.name, answer.employeeId, answer.email, valueEn.gitHub)
     console.log(person)
   } else if (answer.menu === "Intern") {
-    employeeName = new Intern(answer.menu, answer.name, answer.employeeId, answer.email, valueIn.school)
+    answer.name = new Intern(answer.menu, answer.name, answer.employeeId, answer.email, valueIn.school)
     console.log(person)
   } else {
-    employeeName = new Manager(answer.menu, answer.name, answer.employeeId, answer.email, valueMa.officeNumber)
+    answer.name = new Manager(answer.menu, answer.name, answer.employeeId, answer.email, valueMa.officeNumber)
     console.log(person)
   }
 }
-//need to ask about how to make the names 
+//need to ask about how to make the names of each person the name 
 
 openMenu();
 
