@@ -3,13 +3,16 @@ const inquirer = require('inquirer');
 
 
 // Making constructor odjects
-function Manager(role, name, employId, email, officeNum) {
+function Employee(role, name, employId, email, officeNum, github, school) {
     this.role = role;
     this.name = name;
     this.employId = employId;
     this.email = email;
     this.officeNum = officeNum;
+    this.github = github;
+    this.school = school;
 };
+
 
 function openMenu() {
     inquirer
@@ -22,16 +25,8 @@ function openMenu() {
       },
     ])
     .then((answer) => {
-      if(answer.menu === "Employee"){
-        addEmployee();
-      } else if(answer.menu === "Engineer"){
-        addEngineer();
-      } else if(answer.menu === "Intern"){
-        addIntern();
-      } else {
-        addManager();
-      }
-    });
+      addEmployee(answer)
+     });
 } 
 
 // functions will be spaific for each job title each one will have prompted questions
@@ -39,24 +34,29 @@ function openMenu() {
 // function will run again.
 
 // function that add an employee
-function addEmployee(){
-  console.log("Added employee")
+function addEmployee(answer){
+  console.log(answer)
+  console.log("Adding New Employee")
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        message: 'What is thier name',
+        name: 'name',
+      },
+      {
+        type: 'input',
+        message: 'What is thier employee id',
+        name: 'employeeId',
+      },
+      {
+        type: 'input',
+        message: 'What is thier email',
+        name: 'email',
+      },
+    ])
 }
 
-//function that add an engineer
-function addEngineer(){
-  console.log("Added engineer")
-}
-
-//funtion that add an intern
-function addIntern(){
-  console.log("Added intern")
-}
-
-//funtion that add a manager
-function addManager(){
-  console.log("Added manager")
-}
 
 openMenu();
 

@@ -1,14 +1,12 @@
-const employ = require("../index");
+const Managment = require("../index");
 
-// Not working
 describe("index", () => {
     describe("Menu", () => {
-        it("creates a new manager odject", () => {
-          const role = "manager"
-          const obj = new Manager(role);
-
-          const results = obj.value()
-          expect(results instanceof Manager()).toEqual(true);
+        it("create new odject", () => {
+          const job = "Manager"
+          const named = "Jesse"
+          const working = new Managment(job, named)
+          expect(obj instanceof Managment()).toEqual(working);
         });
       });
   });
