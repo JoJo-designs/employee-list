@@ -47,6 +47,7 @@ function openMenu() {
       } 
      });
 } 
+module.exports.openMenu = openMenu;
 
 // functions for each of the differant job titles
 function addEngineer(answer) {
@@ -120,7 +121,7 @@ function makeOdject(answer, value) {
 // I wanted to make the whole file in one go but I am starting to think that it may be a good idea to add team blocks as I go.  
 
 function buildFile(){
-  
+
 }
 
 
