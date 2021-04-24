@@ -1,38 +1,12 @@
 //Call dependancies
 const inquirer = require('inquirer');
+const Employee = require('./employee');
+const Engineer = require('./engineer');
+const Intern = require('./intern');
+const Manager = require('./manager');
 
+let team = [];
 
-// Build constuctors
-function Employee(role, name, employId, email) {
-    this.role = role;
-    this.name = name;
-    this.employId = employId;
-    this.email = email;
-};
-
-function Engineer(role, name, employId, email, github) {
-  this.role = role;
-  this.name = name;
-  this.employId = employId;
-  this.email = email;
-  this.github = github;
-};
-
-function Intern(role, name, employId, email, school) {
-  this.role = role;
-  this.name = name;
-  this.employId = employId;
-  this.email = email;
-  this.school = school;
-};
-
-function Manager(role, name, employId, email, officeNum) {
-  this.role = role;
-  this.name = name;
-  this.employId = employId;
-  this.email = email;
-  this.officeNum = officeNum;
-};
 
 // open menu selects the job title adds name employee id and email. will seperate the
 // differant job titles into their own functions when the questions are answerd.
@@ -85,8 +59,8 @@ function addEngineer(answer) {
         name: 'gitHub',
       },
     ])
-    .then((valueEn) => {
-      makeOdject(answer, valueEn);
+    .then((value) => {
+     makeOdject(answer, value);
     });
 }
 
@@ -97,11 +71,11 @@ function addIntern(answer) {
       {
         type: 'input',
         message: 'What school are they from',
-        name: 'school',
+        name: 'schools',
       },
     ])
-    .then((valueIn) => {
-      makeOdject(answer, valueIn);
+    .then((value) => {
+      makeOdject(answer, value);
     });
 }
 
@@ -115,28 +89,41 @@ function addManager(answer) {
         name: 'officeNumber',
       },
     ])
-    .then((valueMa) => {
-      makeOdject(answer, valueMa);
+    .then((value) => {
+      makeOdject(answer, value);
     });
 }
 
-function makeOdject(answer, valueEn, valueIn, valueMa) {
-
+function makeOdject(answer, value) {
   if (answer.menu === "Employee"){
-    answer.name = new Employee(answer.menu, answer.name, answer.employeeId, answer.email)
-    console.log(employeeName)
+    const newEmployee = new Employee(answer.menu, answer.name, answer.employeeId, answer.email)
+    team.push(newEmployee)
+    console.log(team)
+    openMenu()
   } else if (answer.menu === "Engineer") {
-    answer.name = new Engineer(answer.menu, answer.name, answer.employeeId, answer.email, valueEn.gitHub)
-    console.log(person)
+    const newEngineer = new Engineer(answer.menu, answer.name, answer.employeeId, answer.email, value.gitHub)
+    team.push(newEngineer)
+    console.log(team)
+    openMenu()
   } else if (answer.menu === "Intern") {
-    answer.name = new Intern(answer.menu, answer.name, answer.employeeId, answer.email, valueIn.school)
-    console.log(person)
+    const newIntern = new Intern(answer.menu, answer.name, answer.employeeId, answer.email, value.schools)
+    team.push(newIntern)
+    console.log(team)
+    openMenu()
   } else {
-    answer.name = new Manager(answer.menu, answer.name, answer.employeeId, answer.email, valueMa.officeNumber)
-    console.log(person)
+    const newManager = new Manager(answer.menu, answer.name, answer.employeeId, answer.email, value.officeNumber)
+    team.push(newManager)
+    console.log(team)
+    openMenu()
   }
 }
-//need to ask about how to make the names of each person the name 
+// I wanted to make the whole file in one go but I am starting to think that it may be a good idea to add team blocks as I go.  
+
+function buildFile(){
+  
+}
+
+
 
 openMenu();
 

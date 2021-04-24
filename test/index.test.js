@@ -1,12 +1,15 @@
-const Managment = require("../index");
+const Manager = require("../manager");
 
 describe("index", () => {
     describe("Menu", () => {
-        it("create new odject", () => {
+        it("create new manager odject", () => {
           const job = "Manager"
           const named = "Jesse"
-          const working = new Managment(job, named)
-          expect(obj instanceof Managment()).toEqual(working);
+          const employId = 32910
+          const email = "Email@email.com"
+          const officeNum = 37290209277
+          const working = new Manager(job, named, employId, email, officeNum)
+          expect(working.employId).toEqual(32910);
         });
       });
   });
