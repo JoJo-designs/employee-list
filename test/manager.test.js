@@ -1,7 +1,7 @@
 const Manager = require("../manager");
 
-describe("index", () => {
-    describe("Menu", () => {
+describe("manager", () => {
+    describe("object", () => {
         it("create new manager odject", () => {
           const job = "Manager"
           const named = "Jesse"

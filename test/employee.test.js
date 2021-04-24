@@ -1,6 +1,5 @@
 const Employee = require("../employee");
 
-// working ish now
 describe("employee", () => {
     describe("odject", () => {
         it("creates a new employee odject", () => {
