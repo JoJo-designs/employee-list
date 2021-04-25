@@ -1,5 +1,6 @@
 //Call dependancies
 const inquirer = require('inquirer');
+const fs = require('fs');
 const Employee = require('./employee');
 const Engineer = require('./engineer');
 const Intern = require('./intern');
@@ -51,7 +52,6 @@ module.exports.openMenu = openMenu;
 
 // functions for each of the differant job titles
 function addEngineer(answer) {
-  console.log(answer)
   inquirer
     .prompt([
       {
@@ -66,7 +66,6 @@ function addEngineer(answer) {
 }
 
 function addIntern(answer) {
-  console.log(answer)
   inquirer
     .prompt([
       {
@@ -81,7 +80,6 @@ function addIntern(answer) {
 }
 
 function addManager(answer) {
-  console.log(answer)
   inquirer
     .prompt([
       {
@@ -100,6 +98,7 @@ function makeOdject(answer, value) {
     const newEmployee = new Employee(answer.menu, answer.name, answer.employeeId, answer.email)
     team.push(newEmployee)
     console.log(team)
+    buildFile()
     openMenu()
   } else if (answer.menu === "Engineer") {
     const newEngineer = new Engineer(answer.menu, answer.name, answer.employeeId, answer.email, value.gitHub)
@@ -120,10 +119,58 @@ function makeOdject(answer, value) {
 }
 // I wanted to make the whole file in one go but I am starting to think that it may be a good idea to add team blocks as I go.  
 
-function buildFile(){
+// I don't know if this will work. but I will try it out. I am thinking that it will not work but This is a start I guess.
+function buildFileAppendChildren(answer, value){
+  const section = document.getElementById("employees")
+  if (answer.menu === "Employee") {
+    `<div class="card">
+    <h2 class="employeeName">${answer.name}</h2>
+    <h4 class="jobTitle">${answer.menu}</h4>
+    <p class="email">${answer.email}</p>
+    <p class="employeeID">${answer.email}</p>
+  </div>`
+  } else if (answer.menu === "Engineer") {
+    `<div class="card">
+    <h2 class="employeeName">${answer.name}</h2>
+    <h4 class="jobTitle">${answer.menu}</h4>
+    <p class="email">${answer.email}</p>
+    <p class="employeeID">${answer.email}</p>
+    <p class="github">${value.gitHub}</p>
+    </div>`
+  } else if (answer.menu === "Intern"){
+    `<div class="card">
+    <h2 class="employeeName">${answer.name}</h2>
+    <h4 class="jobTitle">${answer.menu}</h4>
+    <p class="email">${answer.email}</p>
+    <p class="employeeID">${answer.email}</p>
+    <p class="github">${value.schools}</p>
+    </div>`
+  } else {
+    `<div class="card">
+    <h2 class="employeeName">${answer.name}</h2>
+    <h4 class="jobTitle">${answer.menu}</h4>
+    <p class="email">${answer.email}</p>
+    <p class="employeeID">${answer.email}</p>
+    <p class="github">${value.officeNumber}</p>
+    </div>`
+  }
+ };
 
+ function buildFile() {
+  fs.writeFile('index.html', `hello`, (err) =>
+  err ? console.error(err) : console.log('Success!')
+);
 }
 
+const loopTeam = (team) => {
+  for (let i = 0; i < team.length; i++) {
+    const element = team[i];
+    
+    if(element === "Employee"){
+      console.log("I think it works");
+    }
+  }
+}
 
 
 openMenu();
