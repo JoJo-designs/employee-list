@@ -117,44 +117,6 @@ function makeOdject(answer, value) {
     openMenu()
   }
 }
-// I wanted to make the whole file in one go but I am starting to think that it may be a good idea to add team blocks as I go.  
-
-// I don't know if this will work. but I will try it out. I am thinking that it will not work but This is a start I guess.
-function buildFileAppendChildren(answer, value){
-  const section = document.getElementById("employees")
-  if (answer.menu === "Employee") {
-    `<div class="card">
-    <h2 class="employeeName">${answer.name}</h2>
-    <h4 class="jobTitle">${answer.menu}</h4>
-    <p class="email">${answer.email}</p>
-    <p class="employeeID">${answer.email}</p>
-  </div>`
-  } else if (answer.menu === "Engineer") {
-    `<div class="card">
-    <h2 class="employeeName">${answer.name}</h2>
-    <h4 class="jobTitle">${answer.menu}</h4>
-    <p class="email">${answer.email}</p>
-    <p class="employeeID">${answer.email}</p>
-    <p class="github">${value.gitHub}</p>
-    </div>`
-  } else if (answer.menu === "Intern"){
-    `<div class="card">
-    <h2 class="employeeName">${answer.name}</h2>
-    <h4 class="jobTitle">${answer.menu}</h4>
-    <p class="email">${answer.email}</p>
-    <p class="employeeID">${answer.email}</p>
-    <p class="github">${value.schools}</p>
-    </div>`
-  } else {
-    `<div class="card">
-    <h2 class="employeeName">${answer.name}</h2>
-    <h4 class="jobTitle">${answer.menu}</h4>
-    <p class="email">${answer.email}</p>
-    <p class="employeeID">${answer.email}</p>
-    <p class="github">${value.officeNumber}</p>
-    </div>`
-  }
- };
 
  function buildFile() {
   fs.writeFile('./output/index.html', `
@@ -167,14 +129,7 @@ function buildFileAppendChildren(answer, value){
       <section class="pagetop"><h1>My Team List</h1></section>
       <body>
           <section id="employees">
-              <div class="cards">
-                  <div class="cardTop">
-                  <h2>Name</h2>
-                  <h3>Job Title</h3>
-                </div>
-                <p>ID: Id Here</p>
-                <p>Email: email.here</p>
-                <p>Title Spec: Special</p>
+              ${loopTeam(team)}
               </div>
           </section>
       </body>
@@ -187,16 +142,15 @@ function loopTeam(team) {
 
     team.forEach(element => {
       
-    if (answer.menu === "Employee") {
+    if (Employee.role === "Employee") {
       `<div class="cards">
       <div class="cardTop">
-      <h2>Name</h2>
+      <h2>${Employee.name}</h2>
       <h3>Job Title</h3>
-        </div>
-          <p>ID: Id Here</p>
-          <p>Email: email.here</p>
-          <p>Title Spec: Special</p>
-    </div>`
+          </div>
+          <p>ID: ${Employee.employId}</p>
+          <p>Email: ${Employee.email}</p>
+          </div>`
     }
   });
 }  
