@@ -23,6 +23,7 @@ h1 {
 
 .employees{
     display: flex;
+    flex-wrap: wrap;
     width: 100%;
     justify-content: center;
 }
@@ -32,6 +33,12 @@ h1 {
     background-color: white;
     margin: 10px;
 }
+
+@media screen and (max-width: 768px) {
+    .cards {
+        width: 90%;
+    }
+  }
 
 .cardTop {
     width: 100%;
