@@ -9,9 +9,30 @@ const Manager = require('./manager');
 let team = [];
 
 
-// open menu selects the job title adds name employee id and email. will seperate the
-// differant job titles into their own functions when the questions are answerd.
-function openMenu() {
+// openMenu ask the user if they want to make another employee this will run after one person has be added. If user selects yes the 
+//Make new function will run if they say no the function to build the html will run.
+function openMenu(){
+  inquirer
+  .prompt([
+    {
+      type: 'list',
+      message: 'Add another Employee?',
+      choices: ["Yes", "No"],
+      name: 'add',
+    },
+  ])
+  .then((selected) => {
+    if (selected.add === "Yes"){
+      makeNew();
+    } else {
+      buildFile();
+    } 
+   });
+}
+
+//Make new runs frist it forces users to add atleast one peopson to the team.
+//will run after open meun after the first person is added
+function makeNew() {
     inquirer
     .prompt([
       {
@@ -50,7 +71,7 @@ function openMenu() {
 } 
 module.exports.openMenu = openMenu;
 
-// functions for each of the differant job titles
+// functions for each of the differant job titles. adds questions for the spafice jobs than calls the makeOdject function
 function addEngineer(answer) {
   inquirer
     .prompt([
@@ -93,6 +114,7 @@ function addManager(answer) {
     });
 }
 
+// Builds the Odjects based on the data a spilts data based on each job title so each one gets the right data.
 function makeOdject(answer, value) {
   if (answer.menu === "Employee"){
     const newEmployee = new Employee(answer.menu, answer.name, answer.employeeId, answer.email)
@@ -118,6 +140,7 @@ function makeOdject(answer, value) {
   }
 }
 
+// this one is ment to built the html file
  function buildFile() {
   fs.writeFile('./output/index.html', `
   <!DOCTYPE html>
@@ -130,7 +153,6 @@ function makeOdject(answer, value) {
       <body>
           <section id="employees">
               ${loopTeam(team)}
-              </div>
           </section>
       </body>
   </html>  `, (err) =>
@@ -138,27 +160,78 @@ function makeOdject(answer, value) {
 );
 }
 
+// This one is ment to loop the the object in the array and calls another function that builds the html for each in a diffent function
 function loopTeam(team) {
+  let teamHTML = [];
 
-    team.forEach(element => {
-      
-    if (Employee.role === "Employee") {
-      `<div class="cards">
-      <div class="cardTop">
-      <h2>${Employee.name}</h2>
-      <h3>Job Title</h3>
-          </div>
-          <p>ID: ${Employee.employId}</p>
-          <p>Email: ${Employee.email}</p>
-          </div>`
-    }
+    team.forEach(member => {
+      if (member.role === "Employee") {
+      teamHTML.push(buildEmployee(member))
+    } else if (member.role === "Engineer") {
+      teamHTML.push(buildEngineer(member))
+    } else if (member.role === "Intern") {
+      teamHTML.push(buildIntern(member))
+    } else  {
+      teamHTML.push(buildManager(member))
+    } 
   });
+  return teamHTML.join("")
 }  
+
+//Built elements in diffrant funtion
+function buildEmployee(member) {
+let person = `<div class="cards">
+    <div class="cardTop">
+      <h2>${member.name}</h2>
+      <h3>${member.role}</h3>
+  </div>
+      <p>ID: ${member.employId}</p>
+      <p>Email: ${member.email}</p>
+    </div>`
+    return person
+} 
   
+function buildEngineer(member) {
+  let person = `<div class="cards">
+      <div class="cardTop">
+        <h2>${member.name}</h2>
+        <h3>${member.role}</h3>
+    </div>
+        <p>ID: ${member.employId}</p>
+        <p>Email: ${member.email}</p>
+        <p>Email: ${member.github}</p>
+      </div>`
+      return person
+  } 
+
+  function buildIntern(member) {
+    let person = `<div class="cards">
+        <div class="cardTop">
+          <h2>${member.name}</h2>
+          <h3>${member.role}</h3>
+      </div>
+          <p>ID: ${member.employId}</p>
+          <p>Email: ${member.email}</p>
+          <p>Email: ${member.school}</p>
+        </div>`
+        return person
+    } 
+
+    function buildManager(member) {
+      let person = `<div class="cards">
+          <div class="cardTop">
+            <h2>${member.name}</h2>
+            <h3>${member.role}</h3>
+        </div>
+            <p>ID: ${member.employId}</p>
+            <p>Email: ${member.email}</p>
+            <p>Email: ${member.officeNum}</p>
+          </div>`
+          return person
+      } 
 
 
-
-openMenu();
+makeNew();
 
 
  
