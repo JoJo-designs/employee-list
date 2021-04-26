@@ -157,20 +157,51 @@ function buildFileAppendChildren(answer, value){
  };
 
  function buildFile() {
-  fs.writeFile('index.html', `hello`, (err) =>
+  fs.writeFile('./output/index.html', `
+  <!DOCTYPE html>
+  <html>
+      <header>
+          <title>Team List</title>
+          <link rel="stylesheet" href="style.css">
+      </header>
+      <section class="pagetop"><h1>My Team List</h1></section>
+      <body>
+          <section id="employees">
+              <div class="cards">
+                  <div class="cardTop">
+                  <h2>Name</h2>
+                  <h3>Job Title</h3>
+                </div>
+                <p>ID: Id Here</p>
+                <p>Email: email.here</p>
+                <p>Title Spec: Special</p>
+              </div>
+          </section>
+      </body>
+  </html>  `, (err) =>
   err ? console.error(err) : console.log('Success!')
 );
 }
 
-const loopTeam = (team) => {
-  for (let i = 0; i < team.length; i++) {
-    const element = team[i];
-    
-    if(element === "Employee"){
-      console.log("I think it works");
+function loopTeam(team) {
+
+    team.forEach(element => {
+      
+    if (answer.menu === "Employee") {
+      `<div class="cards">
+      <div class="cardTop">
+      <h2>Name</h2>
+      <h3>Job Title</h3>
+        </div>
+          <p>ID: Id Here</p>
+          <p>Email: email.here</p>
+          <p>Title Spec: Special</p>
+    </div>`
     }
-  }
-}
+  });
+}  
+  
+
 
 
 openMenu();

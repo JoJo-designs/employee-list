@@ -1,0 +1,47 @@
+body {
+    background: rgb(231, 223, 213);
+    width: 100%;
+    margin: 0;
+    font-family: 'Franklin Gothic Medium', Arial, sans-serif;
+}
+
+.pagetop{
+    width: 100%;
+    background: rgb(255, 97, 69);
+    text-align: center;
+    border-bottom: 10px solid white;
+    margin-bottom: 30px;
+}
+h1 {
+    margin: 0;
+    padding: 40px 0 40px 0;
+    color: white;
+    font-size: 40px;
+}
+
+.cards {
+    width: 25%;
+    background-color: white;
+    margin: 20px;
+}
+
+.cardTop {
+    width: 100%;
+    background-color: rgb(255, 97, 69);
+}
+
+h2{
+    margin: 0;
+    padding: 10px;
+    color: white;
+}
+
+h3{
+    margin: 0;
+    padding: 10px;
+    color: white;
+}
+p{
+    margin: 0;
+    padding: 10px;
+}
