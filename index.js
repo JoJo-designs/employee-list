@@ -119,23 +119,18 @@ function makeOdject(answer, value) {
   if (answer.menu === "Employee"){
     const newEmployee = new Employee(answer.menu, answer.name, answer.employeeId, answer.email)
     team.push(newEmployee)
-    console.log(team)
-    buildFile()
     openMenu()
   } else if (answer.menu === "Engineer") {
     const newEngineer = new Engineer(answer.menu, answer.name, answer.employeeId, answer.email, value.gitHub)
     team.push(newEngineer)
-    console.log(team)
     openMenu()
   } else if (answer.menu === "Intern") {
     const newIntern = new Intern(answer.menu, answer.name, answer.employeeId, answer.email, value.schools)
     team.push(newIntern)
-    console.log(team)
     openMenu()
   } else {
     const newManager = new Manager(answer.menu, answer.name, answer.employeeId, answer.email, value.officeNumber)
     team.push(newManager)
-    console.log(team)
     openMenu()
   }
 }
@@ -203,7 +198,7 @@ function buildEngineer(member) {
     </div>
         <p>ID: ${member.employId}</p>
         <p>Email: ${member.email}</p>
-        <p>GitHub: ${member.github}</p>
+        <a href="https://github.com/${member.github}"><p>GitHub: ${member.github}</p></a>
   </div>
   <!--added employee-->\n`
       return person
