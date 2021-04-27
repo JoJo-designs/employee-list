@@ -152,11 +152,11 @@ function makeOdject(answer, value) {
           </section>
       </body>
   </html>  `, (err) =>
-  err ? console.error(err) : console.log('Success!')
+  err ? console.error(err) : console.log('Success, your html file was generated!')
 );
 }
 
-// This one is ment to loop the the object in the array and calls another function that builds the html for each in a diffent function
+// This one is ment to loop the the object in the array and calls another function that builds the html for each job
 function loopTeam(team) {
   let teamHTML = [];
 
@@ -174,7 +174,7 @@ function loopTeam(team) {
   return teamHTML.join("")
 }  
 
-//Built elements in diffrant funtion
+//Built html for each element
 function buildEmployee(member) {
 let person = 
   `<div class="cards">
@@ -233,7 +233,7 @@ function buildEngineer(member) {
           return person
       } 
 
-
+//Starts the file
 makeNew();
 
 
