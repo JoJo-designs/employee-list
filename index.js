@@ -147,11 +147,12 @@ function makeOdject(answer, value) {
   <html>
       <header>
           <title>Team List</title>
+          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
           <link rel="stylesheet" href="style.css">
       </header>
-      <section class="pagetop"><h1>My Team List</h1></section>
       <body>
-          <section id="employees">
+      <section class="pagetop"><h1>My Team List</h1></section>
+          <section class="employees">
               ${loopTeam(team)}
           </section>
       </body>
@@ -180,40 +181,46 @@ function loopTeam(team) {
 
 //Built elements in diffrant funtion
 function buildEmployee(member) {
-let person = `<div class="cards">
-    <div class="cardTop">
-      <h2>${member.name}</h2>
-      <h3>${member.role}</h3>
+let person = 
+  `<div class="cards">
+      <div class="cardTop">
+        <h2>${member.name}</h2>
+        <h3>${member.role}</h3>
   </div>
-      <p>ID: ${member.employId}</p>
-      <p>Email: ${member.email}</p>
-    </div>`
+        <p>ID: ${member.employId}</p>
+        <p>Email: ${member.email}</p>
+  </div>
+  <!--added employee-->\n`
     return person
 } 
   
 function buildEngineer(member) {
-  let person = `<div class="cards">
+  let person = 
+  `<div class="cards">
       <div class="cardTop">
         <h2>${member.name}</h2>
         <h3>${member.role}</h3>
     </div>
         <p>ID: ${member.employId}</p>
         <p>Email: ${member.email}</p>
-        <p>Email: ${member.github}</p>
-      </div>`
+        <p>GitHub: ${member.github}</p>
+  </div>
+  <!--added employee-->\n`
       return person
   } 
 
   function buildIntern(member) {
-    let person = `<div class="cards">
-        <div class="cardTop">
+    let person = 
+    `<div class="cards">
+      <div class="cardTop">
           <h2>${member.name}</h2>
           <h3>${member.role}</h3>
       </div>
           <p>ID: ${member.employId}</p>
           <p>Email: ${member.email}</p>
-          <p>Email: ${member.school}</p>
-        </div>`
+          <p>School: ${member.school}</p>
+    </div>
+    <!--added employee-->\n`
         return person
     } 
 
@@ -225,8 +232,9 @@ function buildEngineer(member) {
         </div>
             <p>ID: ${member.employId}</p>
             <p>Email: ${member.email}</p>
-            <p>Email: ${member.officeNum}</p>
-          </div>`
+            <p>Office Number: ${member.officeNum}</p>
+          </div>
+          <!--added employee-->\n`
           return person
       } 
 

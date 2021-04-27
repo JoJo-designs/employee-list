@@ -33,7 +33,7 @@ h1 {
     background-color: white;
     margin: 10px;
 }
-
+ 
 @media screen and (max-width: 768px) {
     .cards {
         width: 90%;
