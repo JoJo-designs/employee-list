@@ -142,7 +142,6 @@ function makeOdject(answer, value) {
   <html>
       <header>
           <title>Team List</title>
-          <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
           <link rel="stylesheet" href="style.css">
       </header>
       <body>
@@ -183,7 +182,7 @@ let person =
         <h3>${member.role}</h3>
   </div>
         <p>ID: ${member.employId}</p>
-        <p>Email: ${member.email}</p>
+        <a href="mailto:${member.email}"> <p>Email: ${member.email}</p></a>
   </div>
   <!--added employee-->\n`
     return person
@@ -197,7 +196,7 @@ function buildEngineer(member) {
         <h3>${member.role}</h3>
     </div>
         <p>ID: ${member.employId}</p>
-        <p>Email: ${member.email}</p>
+        <a href="mailto:${member.email}"> <p>Email: ${member.email}</p></a>
         <a href="https://github.com/${member.github}"><p>GitHub: ${member.github}</p></a>
   </div>
   <!--added employee-->\n`
@@ -212,7 +211,7 @@ function buildEngineer(member) {
           <h3>${member.role}</h3>
       </div>
           <p>ID: ${member.employId}</p>
-          <p>Email: ${member.email}</p>
+        <a href="mailto:${member.email}"> <p>Email: ${member.email}</p> </a> 
           <p>School: ${member.school}</p>
     </div>
     <!--added employee-->\n`
@@ -226,7 +225,7 @@ function buildEngineer(member) {
             <h3>${member.role}</h3>
         </div>
             <p>ID: ${member.employId}</p>
-            <p>Email: ${member.email}</p>
+            <a href="mailto:${member.email}"> <p>Email: ${member.email}</p></a>
             <p>Office Number: ${member.officeNum}</p>
           </div>
           <!--added employee-->\n`
