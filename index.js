@@ -69,7 +69,6 @@ function makeNew() {
       } 
      });
 } 
-module.exports.openMenu = openMenu;
 
 // functions for each of the differant job titles. adds questions for the spafice jobs than calls the makeOdject function
 function addEngineer(answer) {
@@ -235,5 +234,5 @@ function buildEngineer(member) {
 //Starts the file
 makeNew();
 
-
+module.exports.openMenu = openMenu;
  
