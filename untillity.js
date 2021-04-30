@@ -6,10 +6,11 @@ const Intern = require('./intern');
 const Manager = require('./manager');
 // const team = require('')
 
-const memberOne = new Employee("Employee", "Al", 1, "al@email.com");
-const memberTwo = new Manager("Manager", "Sandy", 2, "Sandy@email.com", 23); 
-const memberthree = new Engineer("Engineer", "Chirs", 2, "chris@email.com", "chrisIsCooL");
-const team = [memberOne, memberTwo, memberthree]
+//these are here so I could test to see if the functions could be called from one file to another.
+// const memberOne = new Employee("Employee", "Al", 1, "al@email.com");
+// const memberTwo = new Manager("Manager", "Sandy", 2, "Sandy@email.com", 23); 
+// const memberthree = new Engineer("Engineer", "Chirs", 2, "chris@email.com", "chrisIsCooL");
+// const team = [memberOne, memberTwo, memberthree]
 
 // this one is ment to built the html file
 function buildFile() {
