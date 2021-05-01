@@ -1,9 +1,8 @@
-
 const fs = require('fs');
 const Employee = require("../employee");
 const Manager = require("../manager");
 const Engineer = require("../engineer");
-const untillity = require("./untillity");
+const untillity = require("../untillity");
 
 
 jest.mock("fs");
