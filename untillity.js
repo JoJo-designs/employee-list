@@ -99,3 +99,4 @@ function buildEmployee(member) {
           } 
           module.exports.buildFile = buildFile;
           module.exports.loopTeam = loopTeam;
+          module.exports.buildEmployee = buildEmployee;
