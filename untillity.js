@@ -17,7 +17,7 @@ function buildFile(team) {
             </section>
         </body>
     </html>  `, (err) =>
-    err ? console.error(err) : console.log('Success, your html file was generated!')
+    err ? console.error(err) : console.log('Success!')
   );
   }
 
