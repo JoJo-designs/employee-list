@@ -2,6 +2,10 @@
   [![Licens](https://img.shields.io/badge/License-CC0%202.0-blue.svg)](https://opensource.org/licenses/CC0)
   ### Description
   This program will build a html file that display information about the members of a team. The program helps teams by keeping relevent information all in one easy to access place. The program has options for job titles inculding Manager, Employee, Engineer, and Intern. each job title has different information that is retrived from the user. Css comes prebuilt.
+
+  [Demo Video](https://youtu.be/5UYbPgwW34w)
+  [Repo Link](https://github.com/JoJo-designs/employee-list)
+
   ### Table of Content
   [Installation](#Installation)
 
